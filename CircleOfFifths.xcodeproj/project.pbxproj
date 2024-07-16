@@ -11,6 +11,10 @@
 		326076F72C46CE50004C5868 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326076F62C46CE50004C5868 /* ContentView.swift */; };
 		326076F92C46CE51004C5868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 326076F82C46CE51004C5868 /* Assets.xcassets */; };
 		326076FC2C46CE51004C5868 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 326076FB2C46CE51004C5868 /* Preview Assets.xcassets */; };
+		326077032C46D2E7004C5868 /* SectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326077022C46D2E7004C5868 /* SectorView.swift */; };
+		326077062C46D3AC004C5868 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 326077052C46D3AC004C5868 /* AudioKit */; };
+		326077082C46D40D004C5868 /* RLNDGM.DLS in Resources */ = {isa = PBXBuildFile; fileRef = 326077072C46D40D004C5868 /* RLNDGM.DLS */; };
+		3260770A2C46D43A004C5868 /* Cchord.mid in Resources */ = {isa = PBXBuildFile; fileRef = 326077092C46D43A004C5868 /* Cchord.mid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,9 @@
 		326076F62C46CE50004C5868 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		326076F82C46CE51004C5868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		326076FB2C46CE51004C5868 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		326077022C46D2E7004C5868 /* SectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorView.swift; sourceTree = "<group>"; };
+		326077072C46D40D004C5868 /* RLNDGM.DLS */ = {isa = PBXFileReference; lastKnownFileType = file; path = RLNDGM.DLS; sourceTree = "<group>"; };
+		326077092C46D43A004C5868 /* Cchord.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Cchord.mid; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326077062C46D3AC004C5868 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +61,10 @@
 			children = (
 				326076F42C46CE50004C5868 /* CircleOfFifthsApp.swift */,
 				326076F62C46CE50004C5868 /* ContentView.swift */,
+				326077022C46D2E7004C5868 /* SectorView.swift */,
 				326076F82C46CE51004C5868 /* Assets.xcassets */,
+				326077072C46D40D004C5868 /* RLNDGM.DLS */,
+				326077092C46D43A004C5868 /* Cchord.mid */,
 				326076FA2C46CE51004C5868 /* Preview Content */,
 			);
 			path = CircleOfFifths;
@@ -83,6 +94,9 @@
 			dependencies = (
 			);
 			name = CircleOfFifths;
+			packageProductDependencies = (
+				326077052C46D3AC004C5868 /* AudioKit */,
+			);
 			productName = CircleOfFifths;
 			productReference = 326076F12C46CE50004C5868 /* CircleOfFifths.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 326076E82C46CE50004C5868;
+			packageReferences = (
+				326077042C46D3AC004C5868 /* XCRemoteSwiftPackageReference "AudioKit" */,
+			);
 			productRefGroup = 326076F22C46CE50004C5868 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +143,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				326076FC2C46CE51004C5868 /* Preview Assets.xcassets in Resources */,
+				3260770A2C46D43A004C5868 /* Cchord.mid in Resources */,
 				326076F92C46CE51004C5868 /* Assets.xcassets in Resources */,
+				326077082C46D40D004C5868 /* RLNDGM.DLS in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326077032C46D2E7004C5868 /* SectorView.swift in Sources */,
 				326076F72C46CE50004C5868 /* ContentView.swift in Sources */,
 				326076F52C46CE50004C5868 /* CircleOfFifthsApp.swift in Sources */,
 			);
@@ -344,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		326077042C46D3AC004C5868 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		326077052C46D3AC004C5868 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 326077042C46D3AC004C5868 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 326076E92C46CE50004C5868 /* Project object */;
 }
