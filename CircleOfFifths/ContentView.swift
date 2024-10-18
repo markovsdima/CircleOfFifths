@@ -41,6 +41,17 @@ class MIDIPlayer: ObservableObject {
         sequencer.play()
     }
     
+    // Загрузка и проигрывание MIDI файла
+    func loadAndPlayMIDIFile(named midiFileName: String) {
+        
+        if let midiFileURL = Bundle.main.url(forResource: midiFileName, withExtension: "mid") {
+            sequencer.loadMIDIFile(fromURL: midiFileURL)
+            sequencer.setGlobalMIDIOutput(sampler.midiIn)
+            sequencer.rewind()
+            sequencer.play()
+        }
+        
+    }
     func stop() {
         sequencer.stop()
         sequencer.preroll()
@@ -58,7 +69,7 @@ struct ContentView: View {
                 Button(action: {
                     print("Outer sector \(i + 1) tapped")
                     midiPlayer.stop() // Останавливаем текущую сессию
-                    midiPlayer.play() // Инициализируем новую сессию
+                    midiPlayer.loadAndPlayMIDIFile(named: outerMIDIArray[i]) // Инициализируем новую сессию
                 }) {
                     Sector(startAngle: .degrees(Double(i) * sectorDegrees + 15),
                            endAngle: .degrees(Double(i + 1) * sectorDegrees + 15),
@@ -83,6 +94,8 @@ struct ContentView: View {
                 // Внутренние сектора
                 Button(action: {
                     print("Inner sector \(i + 1) tapped")
+                    midiPlayer.stop()
+                    midiPlayer.loadAndPlayMIDIFile(named: innerMIDIArray[i])
                 }) {
                     Sector(startAngle: .degrees(Double(i) * sectorDegrees + 15),
                            endAngle: .degrees(Double(i + 1) * sectorDegrees + 15),
@@ -107,6 +120,10 @@ struct ContentView: View {
     var sectorDegrees: Double = 30
     var outerArray = ["E", "B", "G♭", "D♭", "A♭", "E♭", "B♭", "F", "C", "G", "D", "A"]
     var innerArray = ["C♯m", "G♯m", "E♭m", "B♭m", "Fm", "Cm", "Gm", "Dm", "Am", "Em", "Bm", "F♯m"]
+    
+    // Массивы для хранения названий MIDI файлов
+    var outerMIDIArray = ["E", "B", "Gb", "Db", "Ab", "Eb", "Bb", "F", "C", "G", "D", "A"]
+    var innerMIDIArray = ["C#m", "G#m", "Ebm", "Bbm", "Fm", "Cm", "Gm", "Dm", "Am", "Em", "Bm", "F#m"]
     
     func buttonTapped(index: Int) {
         print("Sector \(index) tapped!")
